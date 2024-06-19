@@ -21,7 +21,7 @@ async function getNews(){
 }
 function newscard(img,title,description,newslink){
     return`
-    <div class="card" style="width: 18rem; margin-left: 50px;">
+    <div class="card" style="width: 100%;">
         <img src=${img} class="card-img-top" alt=${title}>
         <div class="card-body">
           <h5 class="card-title">${title}</h5>

@@ -7,12 +7,12 @@ getNews()
 getWeather()
 
 async function getNews(){
-    const api="https://newsapi.org/v2/top-headlines?country=in&apiKey=33d9f65a480e4396902fab56b5717d9e"
+    const api="https://gnews.io/api/v4/top-headlines?category=general&lang=en&country=in&max=10&apikey=a9161f741d6570c9b42519d9314d575d"
     try {
         const response=await fetch(api)
         const newsData=await response.json()
         const news=newsData.articles
-        console.log(news)
+        console.log(newsData)
         renderNews(news)
     } catch (error) {
         console.error(error)
@@ -34,7 +34,7 @@ function newscard(img,title,description,newslink){
 function renderNews(news){
     let newscontainer=""
     news.map((n)=>{
-        newscontainer+=newscard(n.urlToImage,n.title,n.description,n.url)
+        newscontainer+=newscard(n.image,n.title,n.description,n.url)
     })
     const container=document.getElementById("container")
     container.innerHTML = newscontainer;
